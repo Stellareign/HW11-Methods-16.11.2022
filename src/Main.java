@@ -1,9 +1,9 @@
 import java.util.Scanner; // импортировали сканнер
 public class Main {
-    public static void main(String[] args) { // хотелось, но не получилось Scanner вынести в метод, путаница с переменой year получается
+    public static void main(String[] args) { // что не так с main?
         System.out.println("Домашка 11, Методы, задача 1:");
         Scanner scanner = new Scanner(System.in);// объявили переменную scanner с типом
-        System.out.println("Введите год:");
+        System.out.println("Введите год:"); // хотелось, но не получилось Scanner вынести в метод, путаница с переменой year получается
         int year = scanner.nextInt(); // считываем запрос
         System.out.println(leapOrNoLeapYear(year));
         main(args); // вызываем программу заново2
