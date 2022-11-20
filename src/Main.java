@@ -1,22 +1,38 @@
 import java.util.Scanner; // импортировали сканнер
+import java.time.LocalDate; // импортировали дату
 public class Main {
-    public static void main(String[] args) { // что не так с main?
+    public static void main(String[] args) {
         System.out.println("Домашка 11, Методы, задача 2:");
-        Scanner scanner = new Scanner(System.in);// объявили переменную scanner с типом
-        System.out.println("Введите год:");
-        int year = scanner.nextInt(); // считываем запрос / хотелось, но не получилось Scanner вынести в метод, путаница с переменой year получается
-        System.out.println(leapOrNoLeapYear(year));
-        main(args); // вызываем программу заново
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите год выпуска OS ");
+        int clientDeviceYear = scanner.nextInt();
+        System.out.println("Введите идентификатор ОС Вашего телефона: 0 - iOS, 1 - Android ");
+        int clientOS = scanner.nextInt();
+        System.out.println(detectionOSVersion(clientDeviceYear, clientOS));
     }
-
-    private static String leapOrNoLeapYear(int year2) {
-        int leapYear1 = year2 % 4;
-        int leapYear2 = year2 % 400;
-        int noLeapYear = year2 % 100;
-        if (noLeapYear != 0 && leapYear1 == 0 || leapYear2 == 0) {
-            return "Этот год високосный.";
+    private static String detectionOSVersion(int clientDeviceYear, int clientOS){
+        String nullString = "";
+        int currentYear = LocalDate.now().getYear();
+        if (clientDeviceYear == currentYear) {
+            switch (clientOS) {
+                case 0:
+                    System.out.println("Установите версию приложения для iOS по ссылке.");
+                    break;
+                case 1:
+                    System.out.println("Установите версию приложения для Android по ссылке.");
+                    break;
+            }
         }
-        return "Этот год не високосный."; // я так и не поняла до конца, как у меня это получилось
+        else {
+            switch (clientOS) {
+                case 0:
+                    System.out.println("Установите облегчённую версию приложения для iOS по ссылке.");
+                    break;
+                case 1:
+                    System.out.println("Установите облегчённую версию приложения для Android по ссылке.");
+                    break;
+            }
+        }
+        return (nullString); // не придумала другого способа завершить метод. Идея требует return, хоть void, хоть int
     }
-
 }
