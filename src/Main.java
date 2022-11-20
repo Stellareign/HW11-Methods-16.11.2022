@@ -8,9 +8,9 @@ public class Main {
         int clientDeviceYear = scanner.nextInt();
         System.out.println("Введите идентификатор ОС Вашего телефона: 0 - iOS, 1 - Android ");
         int clientOS = scanner.nextInt();
-        System.out.println(detectionOSVersion(clientDeviceYear, clientOS));
+        System.out.println(detectionPhoneOS(clientDeviceYear, clientOS));
     }
-    private static String detectionOSVersion(int clientDeviceYear, int clientOS){
+    private static String detectionPhoneOS(int clientDeviceYear, int clientOS){
         String nullString = "";
         int currentYear = LocalDate.now().getYear();
         if (clientDeviceYear == currentYear) {
