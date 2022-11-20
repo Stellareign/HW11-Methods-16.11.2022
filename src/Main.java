@@ -1,38 +1,26 @@
 import java.util.Scanner; // импортировали сканнер
 import java.time.LocalDate; // импортировали дату
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Домашка 11, Методы, задача 2:");
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите год выпуска OS ");
-        int clientDeviceYear = scanner.nextInt();
-        System.out.println("Введите идентификатор ОС Вашего телефона: 0 - iOS, 1 - Android ");
-        int clientOS = scanner.nextInt();
-        System.out.println(detectionPhoneOS(clientDeviceYear, clientOS));
+        System.out.println("Домашка 11, Методы, задача 3:");
+        int deliveryDistance = 120;
+        System.out.println(deliveryTerm(deliveryDistance));
+
     }
-    private static String detectionPhoneOS(int clientDeviceYear, int clientOS){
+
+    private static String deliveryTerm(int deliveryDistance) {
         String nullString = "";
-        int currentYear = LocalDate.now().getYear();
-        if (clientDeviceYear == currentYear) {
-            switch (clientOS) {
-                case 0:
-                    System.out.println("Установите версию приложения для iOS по ссылке.");
-                    break;
-                case 1:
-                    System.out.println("Установите версию приложения для Android по ссылке.");
-                    break;
-            }
+         int[] deliveryTime = {1, 2, 3}; // в исходнике было через три переменные, здесь взяла массив
+        if (deliveryDistance < 20) {
+            System.out.println("Потребуется дней: " + deliveryTime[0] + " день");
+        } else if (deliveryDistance >= 20 && deliveryDistance < 60) {
+            System.out.println("Потребуется дней: " + deliveryTime[1] + " дня");
+        } else if (deliveryDistance >= 60 && deliveryDistance < 100) {
+            System.out.println("Потребуется дней: " + deliveryTime[2] + " дня");
+        } else {
+            System.out.println("На указанное расстояние доставка не производится, для получения карты посетите офис банка.");
         }
-        else {
-            switch (clientOS) {
-                case 0:
-                    System.out.println("Установите облегчённую версию приложения для iOS по ссылке.");
-                    break;
-                case 1:
-                    System.out.println("Установите облегчённую версию приложения для Android по ссылке.");
-                    break;
-            }
-        }
-        return (nullString); // не придумала другого способа завершить метод. Идея требует return, хоть void, хоть int
+        return nullString; // опять не знала, что ретёрнуть, при возвращении deliveryDistance печатает два раза ответ.
     }
 }
